@@ -1,6 +1,5 @@
 import 'package:laces/widgets/cart.dart';
 
-import '../widgets/gridview.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../constants/constants.dart';

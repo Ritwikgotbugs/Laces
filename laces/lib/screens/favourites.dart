@@ -18,7 +18,7 @@ class _SavedState extends State<Saved> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
-        title: const MyTitle(title: "My Favorites"),
+        title: const MyTitle(title: "Favorites"),
         elevation: 1,
         backgroundColor: Colors.white,
         leading: IconButton(

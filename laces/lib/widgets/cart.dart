@@ -1,9 +1,7 @@
 //import 'package:cleats/widgets/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
-import 'package:laces/widgets/customcircle.dart';
 import '../controllers/controller.dart';
 import '../model/model.dart';
 import '../screens/infoPage.dart';
