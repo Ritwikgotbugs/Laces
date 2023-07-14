@@ -1,3 +1,5 @@
+import 'package:laces/screens/checkout.dart';
+
 import '../screens/favourites.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -152,7 +154,7 @@ class _MyBottomNavState extends State<MyBottomNav> {
             label: "Saved",
           ),
           NavigationDestination(
-            icon: const Icon(CupertinoIcons.cart),
+            icon: IconButton(onPressed: (){Get.to(()=> Cart());}, icon: Icon(CupertinoIcons.cart)),
             selectedIcon: Icon(
               CupertinoIcons.cart_fill,
               color: savedController.selectedNavIndex == 3

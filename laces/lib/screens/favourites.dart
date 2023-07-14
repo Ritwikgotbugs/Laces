@@ -31,15 +31,14 @@ class _SavedState extends State<Saved> {
           ),
         ),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(
-            child: CustomScrollView(
-              slivers: [const FavGrid()],
-            ),
-          ),
-        ],
+      body: const SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            FavGrid()
+          ],
+        ),
       ),
     );
   }

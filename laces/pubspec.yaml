@@ -39,6 +39,7 @@ dependencies:
   google_fonts: ^5.1.0
   expandable_text: ^2.3.0
   flutter_rating_bar: ^4.0.1
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:
@@ -73,6 +74,7 @@ flutter:
     - assets/category/woman.png
     - assets/category/shoe.png
     - assets/category/kids.png
+    - assets/infobanner.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
