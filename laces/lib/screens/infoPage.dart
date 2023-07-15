@@ -102,6 +102,13 @@ class _InfoState extends State<Info> {
               ],
             ),
             Padding(
+              padding: const EdgeInsets.only(left: 10, top: 10),
+              child: Text(
+                "Description",
+                style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
+              ),
+            ),
+            Padding(
               padding: const EdgeInsets.only(left: 10, top: 5, bottom: 10),
               child: Text(
                 widget.description,
@@ -114,7 +121,7 @@ class _InfoState extends State<Info> {
               padding: const EdgeInsets.only(left: 10, top: 5),
               child: Text(
                 "Colors",
-                style: TextStyle(fontSize: 16),
+                style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
               ),
             ),
             Row(
@@ -128,7 +135,7 @@ class _InfoState extends State<Info> {
               padding: const EdgeInsets.only(left: 10, top: 10),
               child: Text(
                 "Sizes (UK)",
-                style: TextStyle(fontSize: 16),
+                style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
               ),
             ),
             Padding(
@@ -156,7 +163,7 @@ class _InfoState extends State<Info> {
                     color: savedController.isAdded(widget.myObject)
                         ? Colors.amber
                         : Colors.transparent,
-                        border: Border.all(color: Colors.black)
+                        border: Border.all(color: savedController.isAdded(widget.myObject)? Colors.amber:Colors.black)
                   ),
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,

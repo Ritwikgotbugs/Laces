@@ -161,7 +161,7 @@ class _MyBottomNavState extends State<MyBottomNav> {
                   ? const Color.fromARGB(255, 255, 115, 0)
                   : Colors.black,
             ),
-            label: "Profile",
+            label: "Cart",
           ),
         ],
         labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
@@ -181,7 +181,7 @@ var myDrawer = const Drawer(
     child: Column(
   //mainAxisAlignment: MainAxisAlignment.spaceBetween,
   children: [
-    DrawerHeader(child: Text("PREACH")),
+    DrawerHeader(child: Text("Laces")),
     ListTile(
       leading: Icon(Icons.settings),
       title: Text("S E T T I N G S"),
@@ -222,7 +222,7 @@ class MyTitle extends StatelessWidget {
         title,
         style: const TextStyle(
           color: Colors.black,
-          fontSize: 25,
+          fontSize: 20,
         ),
       ),
     );

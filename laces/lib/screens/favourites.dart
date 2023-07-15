@@ -19,17 +19,9 @@ class _SavedState extends State<Saved> {
       appBar: AppBar(
         centerTitle: true,
         title: const MyTitle(title: "Favorites"),
-        elevation: 1,
+        elevation: 0,
         backgroundColor: Colors.white,
-        leading: IconButton(
-          onPressed: () {
-            Get.back();
-          },
-          icon: const Icon(
-            Icons.arrow_back_ios,
-            color: Colors.black,
-          ),
-        ),
+        
       ),
       body: const SingleChildScrollView(
         child: Column(
