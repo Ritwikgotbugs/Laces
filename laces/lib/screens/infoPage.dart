@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:laces/controllers/controller.dart';
+import 'package:laces/screens/checkout.dart';
 import 'package:laces/widgets/customcircle.dart';
 import 'package:laces/widgets/infobanner.dart';
 
@@ -35,6 +36,9 @@ class _InfoState extends State<Info> {
     final savedController = Get.find<MyObjectsController>();
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(onPressed: (){Get.to(Cart());}, icon: Icon(CupertinoIcons.cart))
+        ],
         backgroundColor: Colors.white,
       ),
       body: SingleChildScrollView(

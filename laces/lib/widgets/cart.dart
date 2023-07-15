@@ -50,21 +50,23 @@ class _GridCardState extends State<GridCard> {
           children: [
             Center(
               child: SizedBox(
-                height: 120,
+                height: 150,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(0),
                   child: AspectRatio(
-                    aspectRatio: 1,
+                    aspectRatio: 0.8,
                     child: Image.asset(
                       widget.image,
-                      fit: BoxFit.contain,
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 5,),
+              padding: const EdgeInsets.only(
+                left: 5,
+              ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,7 +75,6 @@ class _GridCardState extends State<GridCard> {
                     children: [
                       Text(
                         widget.name,
-                        maxLines: 1,
                         textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontSize: 16,
@@ -86,140 +87,108 @@ class _GridCardState extends State<GridCard> {
                         child: Row(
                           children: [
                             IconButton(
-                                onPressed: () {
-                                  savedController.toggleFav(widget.myObject);
-                                  setState(() {
-                                    
-                                  });
-                                },
-                                 icon: savedController.isFavorite(widget.myObject)
-                            ? const Icon(
-                                Icons.favorite,
-                                color: Colors.red,
-                              )
-                            : const Icon(
-                                Icons.favorite_border,
-                                color: Colors.black,
-                              ),),
-                              IconButton(
+                              onPressed: () {
+                                savedController.toggleFav(widget.myObject);
+                                setState(() {});
+                              },
+                              icon: savedController.isFavorite(widget.myObject)
+                                  ? const Icon(
+                                      Icons.favorite,
+                                      color: Colors.red,
+                                    )
+                                  : const Icon(
+                                      Icons.favorite_border,
+                                      color: Colors.black,
+                                    ),
+                            ),
+                            IconButton(
                                 onPressed: () {
                                   savedController.toggleCart(widget.myObject);
-                                  setState(() {
-                                    
-                                  });
+                                  setState(() {});
                                 },
-                                 icon: Icon(CupertinoIcons.delete,color: Colors.red,)),
+                                icon: Icon(
+                                  CupertinoIcons.delete,
+                                  color: Colors.red,
+                                )),
                           ],
                         ),
                       )
-
                     ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 2),
-                    child: Text(
-                      '\$${widget.price}',
-                      maxLines: 1,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                 Row(
-                   children: [
-                     Row(
-                       children: [
-                        Text("Color: "),
-                         Text("Red"),
-                       ],
-                     ),
-                      Row(
-                        children: [
-                          Text("Size: "), 
-                          Text("8"),
-                        ],
-                      ),
-                    Padding(
-              padding: const EdgeInsets.only(left: 5, top: 3),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
                   Text(
-                    widget.name,
+                    '\$${widget.price}',
                     maxLines: 1,
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                       fontSize: 16,
-                      color: Color(0xFF191B26),
-                      fontWeight: FontWeight.w700,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 2),
-                    child: Text(
-                      '\$${widget.price}',
-                      maxLines: 1,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 6, top: 6),
-                    child: InkWell(
-                      onTap: () {
-                        savedController.toggleCart(widget.myObject);
-                        setState(() {});
-                      },
-                      child: Container(
-                        width: MediaQuery.of(context).size.width / 4,
-                        height: 40,
-                        decoration: BoxDecoration(
-                            color: savedController.isAdded(widget.myObject)
-                                ? Colors.amber
-                                : Colors.transparent,
-                            border: Border.all(color: Colors.amber)),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("Color: Red"),
+                      Text("Size: 8"),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 5, top: 3),
                         child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                CupertinoIcons.cart,
-                                color: savedController.isAdded(widget.myObject)
-                                    ? Colors.black
-                                    : Colors.amber,
-                                size: 20,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 2),
-                                child: Text(
-                                  savedController.isAdded(widget.myObject)
-                                      ? "Added"
-                                      : "Add to Bag",
-                                  style: TextStyle(
-                                    color:
-                                        savedController.isAdded(widget.myObject)
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(right: 6, top: 6),
+                              child: InkWell(
+                                onTap: () {
+                                  savedController.toggleCart(widget.myObject);
+                                  setState(() {});
+                                },
+                                child: Container(
+                                  width: MediaQuery.of(context).size.width / 4,
+                                  height: 40,
+                                  decoration: BoxDecoration(
+                                      color: savedController
+                                              .isAdded(widget.myObject)
+                                          ? Colors.amber
+                                          : Colors.transparent,
+                                      border: Border.all(color: Colors.amber)),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        CupertinoIcons.cart,
+                                        color: savedController
+                                                .isAdded(widget.myObject)
                                             ? Colors.black
                                             : Colors.amber,
+                                        size: 20,
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(left: 2),
+                                        child: Text(
+                                          savedController
+                                                  .isAdded(widget.myObject)
+                                              ? "Added"
+                                              : "Add to Bag",
+                                          style: TextStyle(
+                                            color: savedController
+                                                    .isAdded(widget.myObject)
+                                                ? Colors.black
+                                                : Colors.amber,
+                                          ),
+                                        ),
+                                      )
+                                    ],
                                   ),
                                 ),
-                              )
-                            ]),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
-                    ),
+                    ],
                   )
-                ],
-              ),
-            ),
-                   ],
-                 )
-
                 ],
               ),
             ),

@@ -36,8 +36,8 @@ class _InfoBannerState extends State<InfoBanner> {
       options: CarouselOptions(
         scrollPhysics: const BouncingScrollPhysics(),
         autoPlay: false,
-        aspectRatio: 1,
-        viewportFraction: 1,
+        aspectRatio: 2.2,
+        viewportFraction: 0.85,
         onPageChanged: (index, reason) {
           setState(() {
             currentindex = index;
