@@ -4,6 +4,7 @@ class PriceRangeSliderWidget extends StatefulWidget {
   const PriceRangeSliderWidget({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _PriceRangeSliderWidgetState createState() => _PriceRangeSliderWidgetState();
 }
 

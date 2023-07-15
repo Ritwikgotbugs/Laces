@@ -19,8 +19,7 @@ class MySearchBar extends StatelessWidget {
       child: Container(
         height: 50,
         constraints: BoxConstraints(
-          maxWidth: MediaQuery.of(context).size.width -
-              65, // Set the maximum width for larger screens
+          maxWidth: MediaQuery.of(context).size.width  
         ),
         decoration:
             BoxDecoration(borderRadius: BorderRadius.circular(70), 
@@ -101,6 +100,7 @@ class MyBottomNav extends StatefulWidget {
   const MyBottomNav({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _MyBottomNavState createState() => _MyBottomNavState();
 }
 
@@ -154,7 +154,8 @@ class _MyBottomNavState extends State<MyBottomNav> {
             label: "Saved",
           ),
           NavigationDestination(
-            icon: IconButton(onPressed: (){Get.to(()=> Cart());}, icon: Icon(CupertinoIcons.cart)),
+            // ignore: prefer_const_constructors
+            icon: IconButton(onPressed: (){Get.to(()=> const Cart());}, icon: Icon(CupertinoIcons.cart)),
             selectedIcon: Icon(
               CupertinoIcons.cart_fill,
               color: savedController.selectedNavIndex == 3
@@ -256,7 +257,7 @@ class MyCircles extends StatelessWidget {
 class MyColors extends StatelessWidget {
   final Color color;
 
-  MyColors({
+  const MyColors({
     Key? key,
     required this.color,
   }) : super(key: key);

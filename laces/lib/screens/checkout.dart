@@ -13,14 +13,24 @@ class Cart extends StatefulWidget {
 }
 
 class _CartState extends State<Cart> {
-  
   final codecontroller = TextEditingController();
   final cartController = Get.find<MyObjectsController>();
+
+  // ignore: prefer_typing_uninitialized_variables
+  var code;
+
+  final String coupon = "Laces100";
+
+  int num = 0;
+  int delnum = 15;
+
+  bool isCode = false;
+
   @override
   Widget build(BuildContext context) {
-    final items=cartController.cart.length;
+    final items = cartController.cart.length;
     return Scaffold(
-      backgroundColor: Colors.grey[200],
+      backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
         title: const MyTitle(
@@ -35,13 +45,19 @@ class _CartState extends State<Cart> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CartGrid(),
+            const CartGrid(),
             Padding(
-              padding: const EdgeInsets.only(left: 5,top: 5),
+              padding: const EdgeInsets.only(left: 5, top: 5),
               child: Text("Total items in cart: $items"),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
+            ),
+            const Divider(
+              color: Colors.grey,
+              thickness: 0.4,
+              indent: 20,
+              endIndent: 20,
             ),
             Container(
               color: Colors.white,
@@ -51,10 +67,10 @@ class _CartState extends State<Cart> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
+                  const Row(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: EdgeInsets.all(8.0),
                         child: Text(
                           "Apply Coupon",
                           style: TextStyle(
@@ -79,6 +95,14 @@ class _CartState extends State<Cart> {
                         hintStyle: const TextStyle(
                             color: Color.fromARGB(255, 61, 61, 61),
                             fontSize: 15),
+                        suffixIcon: IconButton(
+                            onPressed: () {
+                              setState(() {});
+                            },
+                            icon: const Icon(
+                              CupertinoIcons.arrow_right_circle_fill,
+                              size: 30,
+                            )),
                         hoverColor: null,
                         border: InputBorder.none,
                         enabledBorder: OutlineInputBorder(
@@ -97,6 +121,14 @@ class _CartState extends State<Cart> {
                         ),
                       ),
                       controller: codecontroller,
+                      onChanged: (value) {
+                        code = value;
+                        if (code == coupon) {
+                          isCode = true;
+                        } else {
+                          isCode = false;
+                        }
+                      },
                     ),
                   ),
                 ],
@@ -108,14 +140,14 @@ class _CartState extends State<Cart> {
               ),
               child: Container(
                 width: MediaQuery.sizeOf(context).width,
-                height: 300,
+                height: 230,
                 color: Colors.white,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10, bottom: 5),
+                    const Padding(
+                      padding: EdgeInsets.only(top: 10, bottom: 5),
                       child: Text(
                         "Billing Details",
                         style: TextStyle(
@@ -124,7 +156,7 @@ class _CartState extends State<Cart> {
                             fontSize: 15),
                       ),
                     ),
-                    Divider(
+                    const Divider(
                       color: Colors.grey,
                       thickness: 0.4,
                       indent: 20,
@@ -135,7 +167,7 @@ class _CartState extends State<Cart> {
                           left: 20.0, right: 20, top: 10, bottom: 3),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [Text("Total MRP: "), Text("\$${widget}")],
+                        children: [const Text("Total MRP: "), Text("\$$widget")],
                       ),
                     ),
                     Padding(
@@ -144,8 +176,8 @@ class _CartState extends State<Cart> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Coupon Discount: "),
-                          Text("\$${widget}")
+                          const Text("Coupon Discount: "),
+                          Text(isCode ? "\$100" : "\$0")
                         ],
                       ),
                     ),
@@ -154,10 +186,10 @@ class _CartState extends State<Cart> {
                           left: 20.0, right: 20, top: 10, bottom: 3),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [Text("Delivery Charges: "), Text("\$15")],
+                        children: [const Text("Delivery Charges: "), Text("\$$delnum")],
                       ),
                     ),
-                    Divider(
+                    const Divider(
                       color: Colors.grey,
                       thickness: 0.4,
                       indent: 20,
@@ -169,14 +201,14 @@ class _CartState extends State<Cart> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
+                          const Text(
                             "Total Amount: ",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            "\$${widget}",
-                            style: TextStyle(
+                            "\$$widget",
+                            style: const TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           )
                         ],
@@ -192,7 +224,12 @@ class _CartState extends State<Cart> {
                 color: Colors.black,
                 height: 40,
                 width: MediaQuery.sizeOf(context).width,
-                child: Center(child: Text("Place Order",style: TextStyle(fontSize: 16,color: Colors.white),),),
+                child: const Center(
+                  child: Text(
+                    "Place Order",
+                    style: TextStyle(fontSize: 16, color: Colors.white),
+                  ),
+                ),
               ),
             )
           ],

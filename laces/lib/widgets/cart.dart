@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:laces/constants/addtocart.dart';
 import '../controllers/controller.dart';
 import '../model/model.dart';
-import '../screens/infoPage.dart';
+import '../screens/infopage.dart';
 
 class GridCard extends StatefulWidget {
   final String name;
@@ -98,7 +98,7 @@ class _GridCardState extends State<GridCard> {
                                     savedController.toggleCart(widget.myObject);
                                     setState(() {});
                                   },
-                                  icon: Icon(
+                                  icon: const Icon(
                                     CupertinoIcons.delete,
                                     color: Colors.red,
                                   )),
@@ -121,8 +121,8 @@ class _GridCardState extends State<GridCard> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Color: Red"),
-                        Text("Size: 8"),
+                        const Text("Color: Red"),
+                        const Text("Size: 8"),
                         Padding(
                           padding: const EdgeInsets.only(left: 5, top: 3),
                           child: Row(

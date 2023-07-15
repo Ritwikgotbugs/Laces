@@ -17,12 +17,12 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   final MyObjectsController savedController = Get.put(MyObjectsController());
 
-  final List<Filters> FiltersList = [
-    Filters(label: "Men", image: "assets/category/man.png"),
-    Filters(label: "Woman", image: "assets/category/woman.png"),
-    Filters(label: "Kids", image: "assets/category/kids.png"),
-    Filters(label: "Accessories", image: "assets/category/shoe.png"),
-    Filters(label: "Female", image: "assets/category/woman.png"),
+  final List<Filters> filtersList = [
+    const Filters(label: "Men", image: "assets/category/man.png"),
+    const Filters(label: "Woman", image: "assets/category/woman.png"),
+    const Filters(label: "Kids", image: "assets/category/kids.png"),
+    const Filters(label: "Accessories", image: "assets/category/shoe.png"),
+    const Filters(label: "Female", image: "assets/category/woman.png"),
   ];
 
   @override
@@ -34,17 +34,11 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: myDrawer,
       appBar: AppBar(
-        title: const Text("Cleats"),
+        title: const Text("Laces"),
+        centerTitle: true,
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              CupertinoIcons.profile_circled,
-              color: Colors.black,
-              size: 25,
-            ),
-          ),
           IconButton(
             onPressed: () {},
             icon: const Icon(
@@ -53,47 +47,33 @@ class _HomepageState extends State<Homepage> {
               size: 25,
             ),
           ),
+          
         ],
+        
       ),
       body: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const MySearchBar(),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 10),
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      CupertinoIcons.square_grid_2x2,
-                      color: Colors.black,
-                      size: 25,
-                    ),
-                  ),
-                ),
-              ],
-            ),
+            const MySearchBar(),
             BannerWidget(),
             Flexible(
               child: SizedBox(
                 height: 120,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: FiltersList.length,
+                  itemCount: filtersList.length,
                   itemBuilder: (context, index) {
                     return Filters(
-                      label: FiltersList[index].label,
-                      image: FiltersList[index].image,
+                      label: filtersList[index].label,
+                      image: filtersList[index].image,
                     );
                   },
                 ),
               ),
             ),
-            MyGrid(),
+            const MyGrid(),
           ],
         ),
       ),

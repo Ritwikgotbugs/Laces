@@ -1,3 +1,4 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -37,7 +38,7 @@ class _InfoState extends State<Info> {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          IconButton(onPressed: (){Get.to(Cart());}, icon: Icon(CupertinoIcons.cart))
+          IconButton(onPressed: (){Get.to(const Cart());}, icon: const Icon(CupertinoIcons.cart))
         ],
         backgroundColor: Colors.white,
       ),
@@ -46,7 +47,7 @@ class _InfoState extends State<Info> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            InfoBanner(),
+            const InfoBanner(),
             Padding(
               padding: const EdgeInsets.only(left: 10, top: 10, right: 10),
               child: Row(
@@ -54,14 +55,14 @@ class _InfoState extends State<Info> {
                 children: [
                   Text(
                     widget.name,
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: Colors.black,
                         fontSize: 20,
                         fontWeight: FontWeight.bold),
                   ),
                   Text(
                     "\$${widget.price}",
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: Colors.black,
                         fontSize: 20,
                         fontWeight: FontWeight.bold),
@@ -93,7 +94,7 @@ class _InfoState extends State<Info> {
                   padding: const EdgeInsets.only(left: 7, top: 3),
                   child: Text(
                     widget.rating,
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: Colors.black,
                         fontSize: 15,
                         fontWeight: FontWeight.bold),
@@ -101,8 +102,8 @@ class _InfoState extends State<Info> {
                 ),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 10, top: 10),
+            const Padding(
+              padding: EdgeInsets.only(left: 10, top: 10),
               child: Text(
                 "Description",
                 style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
@@ -114,32 +115,32 @@ class _InfoState extends State<Info> {
                 widget.description,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
-                style: TextStyle(color: Colors.black, fontSize: 11),
+                style: const TextStyle(color: Colors.black, fontSize: 11),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 10, top: 5),
+            const Padding(
+              padding: EdgeInsets.only(left: 10, top: 5),
               child: Text(
                 "Colors",
                 style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
               ),
             ),
-            Row(
+            const Row(
               children: [
                 MyCircle(color: Colors.black),
                 MyCircle(color: Colors.red),
                 MyCircle(color: Colors.blue),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 10, top: 10),
+            const Padding(
+              padding: EdgeInsets.only(left: 10, top: 10),
               child: Text(
                 "Sizes (UK)",
                 style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 20),
+            const Padding(
+              padding: EdgeInsets.only(bottom: 20),
               child: Row(
                 children: [
                   Sizes(size: "7"),
@@ -168,7 +169,7 @@ class _InfoState extends State<Info> {
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
+                        const Icon(
                           CupertinoIcons.cart,
                           color: Colors.black,
                           size: 20,
@@ -179,7 +180,7 @@ class _InfoState extends State<Info> {
                             savedController.isAdded(widget.myObject)
                                 ? "Added"
                                 : "Add to Bag",
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.black
                             ),
                           ),

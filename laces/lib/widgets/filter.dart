@@ -4,7 +4,7 @@ class Filters extends StatelessWidget {
   final String image;
   final String label;
 
-  Filters({
+  const Filters({
     Key? key,
     required this.label,
     required this.image,

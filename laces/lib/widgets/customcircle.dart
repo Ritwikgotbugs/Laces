@@ -49,7 +49,7 @@ class Sizes extends StatelessWidget {
               borderRadius: BorderRadius.circular(100),
               color: Colors.white,
             ),
-            child: Center(child: Text(size,style: TextStyle(color: Colors.black,fontSize: 11),)),
+            child: Center(child: Text(size,style: const TextStyle(color: Colors.black,fontSize: 11),)),
           ),
         ),
       ),

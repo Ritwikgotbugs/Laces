@@ -5,7 +5,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import '../controllers/controller.dart';
 import '../model/model.dart';
-import '../screens/infoPage.dart';
+import '../screens/infopage.dart';
 
 class GridCard extends StatefulWidget {
   final String name;
@@ -215,7 +215,7 @@ class MyGrid extends StatelessWidget {
     final MyObjectsController savedController = Get.put(MyObjectsController());
     return GridView.builder(
       shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         mainAxisSpacing: 0,
@@ -245,7 +245,7 @@ class FavGrid extends StatelessWidget {
     final MyObjectsController savedController = Get.put(MyObjectsController());
     return GridView.builder(
       shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         mainAxisSpacing: 0,
