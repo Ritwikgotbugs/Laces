@@ -41,9 +41,9 @@ class _CartState extends State<Cart> {
             backgroundColor: Colors.white,
             leading: IconButton(
                 onPressed: () {
-                  Get.to(() => MyNavBar());
+                  Get.to(() => const MyNavBar());
                 },
-                icon: Icon(CupertinoIcons.arrow_left)),
+                icon: const Icon(CupertinoIcons.arrow_left)),
           ),
           body: SingleChildScrollView(
             child: Column(
@@ -138,8 +138,8 @@ class _CartState extends State<Cart> {
                           },
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15, top: 5),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 15, top: 5),
                         child: Text(
                           "Use code \"Laces100\" to get \$100 Off",
                           style: TextStyle(fontSize: 12),

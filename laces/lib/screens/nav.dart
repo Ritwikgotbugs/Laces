@@ -7,7 +7,7 @@ import 'package:laces/screens/homepage.dart';
 
 
 class MyNavBar extends StatefulWidget {
-  const MyNavBar({Key? key});
+  const MyNavBar({super.key,});
 
   @override
   State<MyNavBar> createState() => _MyNavBarState();
@@ -51,13 +51,13 @@ class _MyNavBarState extends State<MyNavBar> {
   Widget getPage(int index) {
     switch (index) {
       case 0:
-        return Homepage();
+        return const Homepage();
       case 1:
-        return Saved();
+        return const Saved();
       case 2:
-        return Cart();
+        return const Cart();
       default:
-        return Homepage();
+        return const Homepage();
     }
   }
 }

@@ -46,22 +46,22 @@ class _HomepageState extends State<Homepage> {
               Padding(
                 padding: const EdgeInsets.only(right: 20.0),
                 child: badges.Badge(
-                  badgeAnimation: badges.BadgeAnimation.scale(
+                  badgeAnimation: const badges.BadgeAnimation.scale(
                     animationDuration: Duration(seconds: 1),
                     loopAnimation: false,
                     curve: Curves.fastOutSlowIn,
                   ),
-                  badgeStyle: badges.BadgeStyle(badgeColor: Colors.black),
+                  badgeStyle: const badges.BadgeStyle(badgeColor: Colors.black),
                   position: badges.BadgePosition.topEnd(top: -10, end: -8),
                   badgeContent: Text(
                     '${savedController.cart.length}',
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                   ),
                   child: IconButton(
                     onPressed: () {
-                      Get.to(() => Cart());
+                      Get.to(() => const Cart());
                     },
-                    icon: Icon(CupertinoIcons.cart),
+                    icon: const Icon(CupertinoIcons.cart),
                   ),
                 ),
               ),

@@ -144,7 +144,7 @@ class CartGrid extends StatelessWidget {
       ()=>
       ListView.builder(
         shrinkWrap: true,
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         itemCount: savedController.cart.length,
         itemBuilder: ((context, index) {
           final myObject = savedController.cart[index];
