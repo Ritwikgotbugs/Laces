@@ -26,7 +26,7 @@ class MyObjectsController extends GetxController {
             (item) => MyObjects(
               name: item['name'],
               price: item['price'],
-              descripton: item['description'],
+              description: item['description'],
               rating: item['rating'],
               image: item['image'],
             ),
@@ -48,6 +48,7 @@ class MyObjectsController extends GetxController {
     }
     update();
   }
+
   bool isFavorite(MyObjects card) {
     return saved.contains(card);
   }
@@ -70,5 +71,14 @@ class MyObjectsController extends GetxController {
   void selectCategory(int index) {
     selectedIndex.value = index;
     update();
+  }
+
+  List<int> getCartPrices() {
+    return cart.map((item) => int.tryParse(item.price) ?? 0).toList();
+  }
+
+  int calculateTotalPrice() {
+    final List<int> cartTotal = getCartPrices();
+    return cartTotal.fold(0, (sum, price) => sum + price);
   }
 }

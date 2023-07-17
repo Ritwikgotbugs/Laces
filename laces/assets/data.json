@@ -11,14 +11,14 @@
       "price": "220",
       "rating": "4",
       "description": "The Air Jordan 2 was released in 1986 and was the first Jordan sneaker to be designed by Tinker Hatfield. The shoe is known for its unique design, which features a clear outsole and a midsole that is made of two different materials.",
-      "image": "assets/jordans.jpg"      
+      "image": "assets/airjordans.jpg"      
     },
     {
       "name": "Air Jordan 3",
       "price": "250",
       "rating": "3.5",
       "description": "The Air Jordan 3 was released in 1988 and is one of the most popular Jordan sneakers of all time. The shoe is known for its elephant print and its visible Air unit in the heel.",
-      "image": "assets/jordans.jpg"      
+      "image": "assets/airjordans.jpg"      
     },
     {
       "name": "Air Jordan 4",
@@ -32,7 +32,7 @@
       "price": "300",
       "rating": "4",
       "description": "The Air Jordan 5 was released in 1990 and is known for its unique design, which features a clear tongue and a shark tooth outsole. The shoe is also one of the most popular Jordan sneakers for customization.",
-          "image": "assets/jordans.jpg"
+          "image": "assets/airjordans.jpg"
     },
     {
         "name": "Air Jordan 6",
@@ -46,7 +46,7 @@
         "price": "310",
         "rating": "3",
         "description": "The Air Jordan 7 was released in 1992 and is known for its unique design, which features a holographic Jumpman logo on the tongue.",
-            "image": "assets/jordans.jpg"
+            "image": "assets/airjordans.jpg"
       },
       {
         "name": "Air Jordan 8",
@@ -60,7 +60,7 @@
         "price": "350",
         "rating": "3", 
         "description": "The Air Jordan 9 was released in 1994 and is known for its unique design, which features a carbon fiber midsole and a visible Air unit in the heel.",
-      "image": "assets/jordans.jpg"        
+      "image": "assets/airjordans.jpg"        
       },
       {
         "name": "Air Jordan 10",
@@ -74,10 +74,10 @@
         "price": "390",
         "rating": "4.5",
         "description": "The Air Jordan 11 was released in 1996 and is one of the most popular Jordan sneakers of all time. The shoe is known for its patent leather upper and its visible Air unit in the heel.",
-      "image": "assets/jordans.jpg"        
+      "image": "assets/airjordans.jpg"        
       },
       {
-        "name": "Air Jordan 12",
+        "name": "Special Editions",
         "price": "410",
         "rating": "4",
         "description": "The Air Jordan 12 was released in 1997 and is known for its unique design, which features a carbon fiber midsole and a visible Air unit in the heel.",

@@ -36,16 +36,19 @@ class Filters extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 1),
-                    child: ClipOval(
-                      child: Container(
-                        height: MediaQuery.of(context).size.width / 5,
-                        width: MediaQuery.of(context).size.width / 5,
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                        ),
-                        child: Image.asset(
-                          image,
-                          fit: BoxFit.contain,
+                    child: InkWell(
+                      onTap: (){},
+                      child: ClipOval(
+                        child: Container(
+                          height: MediaQuery.of(context).size.width / 5,
+                          width: MediaQuery.of(context).size.width / 5,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                          ),
+                          child: Image.asset(
+                            image,
+                            fit: BoxFit.contain,
+                          ),
                         ),
                       ),
                     ),

@@ -1,11 +1,5 @@
-import 'package:laces/screens/checkout.dart';
-
-import '../screens/favourites.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../controllers/controller.dart';
-import '../widgets/bottomsheet.dart';
-import 'package:get/get.dart';
 
 final searchcontroller = TextEditingController();
 
@@ -29,7 +23,7 @@ class MySearchBar extends StatelessWidget {
             color: Colors.grey.withOpacity(0.5),
             offset: const Offset(0, 0),
             blurRadius: 5,
-          )
+          ),
         ]),
         child: const MySearch(),
       ),
@@ -37,9 +31,14 @@ class MySearchBar extends StatelessWidget {
   }
 }
 
-class MySearch extends StatelessWidget {
+class MySearch extends StatefulWidget {
   const MySearch({super.key});
 
+  @override
+  State<MySearch> createState() => _MySearchState();
+}
+
+class _MySearchState extends State<MySearch> {
   @override
   Widget build(BuildContext context) {
     return TextField(
@@ -56,16 +55,10 @@ class MySearch extends StatelessWidget {
         hintStyle: const TextStyle(color: Colors.black, fontSize: 17),
         suffixIcon: IconButton(
           onPressed: () {
-            showModalBottomSheet(
-              isScrollControlled: false,
-              context: context,
-              builder: (BuildContext context) {
-                return const MyBottomSheet();
-              },
-            );
+          setState(() {});
           },
           icon: const Icon(
-            CupertinoIcons.slider_horizontal_3,
+            CupertinoIcons.arrow_right_circle_fill,
             size: 25,
             color: Colors.black,
           ),
@@ -96,87 +89,7 @@ class MySearch extends StatelessWidget {
   }
 }
 
-class MyBottomNav extends StatefulWidget {
-  const MyBottomNav({Key? key}) : super(key: key);
 
-  @override
-  // ignore: library_private_types_in_public_api
-  _MyBottomNavState createState() => _MyBottomNavState();
-}
-
-class _MyBottomNavState extends State<MyBottomNav> {
-  final MyObjectsController savedController = Get.put(MyObjectsController());
-
-  /*final Map<String, Widget> _screens = {
-    "Home": const Homepage(),
-    "Search": const Search(),
-    "Saved": const Saved(),
-    "Cart": const Checkout(),
-  };*/
-
-  @override
-  Widget build(BuildContext context) {
-    return Obx(
-      () => NavigationBar(
-        destinations: [
-          NavigationDestination(
-            icon: const Icon(CupertinoIcons.house),
-            selectedIcon: Icon(
-              CupertinoIcons.house_fill,
-              color: savedController.selectedNavIndex == 0
-                  ? const Color.fromARGB(255, 255, 115, 0)
-                  : Colors.black,
-            ),
-            label: "Home",
-          ),
-          NavigationDestination(
-            icon: const Icon(CupertinoIcons.search),
-            selectedIcon: Icon(
-              CupertinoIcons.search,
-              color: savedController.selectedNavIndex == 1
-                  ? const Color.fromARGB(255, 255, 115, 0)
-                  : Colors.black,
-            ),
-            label: "Search",
-          ),
-          NavigationDestination(
-            icon: IconButton(
-                onPressed: () {
-                  Get.to(const Saved());
-                },
-                icon: const Icon(CupertinoIcons.heart)),
-            selectedIcon: Icon(
-              CupertinoIcons.heart_fill,
-              color: savedController.selectedNavIndex == 2
-                  ? const Color.fromARGB(255, 255, 115, 0)
-                  : Colors.black,
-            ),
-            label: "Saved",
-          ),
-          NavigationDestination(
-            // ignore: prefer_const_constructors
-            icon: IconButton(onPressed: (){Get.to(()=> const Cart());}, icon: Icon(CupertinoIcons.cart)),
-            selectedIcon: Icon(
-              CupertinoIcons.cart_fill,
-              color: savedController.selectedNavIndex == 3
-                  ? const Color.fromARGB(255, 255, 115, 0)
-                  : Colors.black,
-            ),
-            label: "Cart",
-          ),
-        ],
-        labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
-        shadowColor: Colors.transparent,
-        elevation: 2,
-        backgroundColor: Colors.transparent,
-        surfaceTintColor: Colors.transparent,
-        selectedIndex: savedController.selectedNavIndex,
-        onDestinationSelected: (index) =>
-            savedController.selectedNavIndex = index,
-      ),
-    );
-  }
-}
 
 var myDrawer = const Drawer(
     child: Column(

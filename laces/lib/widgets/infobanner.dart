@@ -10,11 +10,8 @@ class InfoBanner extends StatefulWidget {
 
 class _InfoBannerState extends State<InfoBanner> {
   List bannerItems = [
-    {'id': 1, 'imagepath': 'assets/infobanner.jpg'},
-    {'id': 2, 'imagepath': 'assets/infobanner.jpg'},
-    {'id': 3, 'imagepath': 'assets/infobanner.jpg'},
-    {'id': 4, 'imagepath': 'assets/infobanner.jpg'},
-    {'id': 5, 'imagepath': 'assets/infobanner.jpg'},
+    {'id': 1, 'imagepath': 'assets/image1.jpg'},
+    {'id': 4, 'imagepath': 'assets/image2.jpg'},
   ];
   int currentindex = 0;
 
@@ -36,8 +33,8 @@ class _InfoBannerState extends State<InfoBanner> {
       options: CarouselOptions(
         scrollPhysics: const BouncingScrollPhysics(),
         autoPlay: false,
-        aspectRatio: 2.2,
-        viewportFraction: 0.85,
+        aspectRatio: 1.6,
+        viewportFraction: 1,
         onPageChanged: (index, reason) {
           setState(() {
             currentindex = index;

@@ -32,18 +32,18 @@ class _AddToCartState extends State<AddToCart> {
             height: 40,
             decoration: BoxDecoration(
                 color: savedController.isAdded(widget.myObject)
-                    ? Colors.amber
+                    ? Colors.black
                     : Colors.transparent,
-                border: Border.all(color: Colors.amber),
-                borderRadius: BorderRadius.circular(7)),
+                border: Border.all(color: Colors.black),
+                borderRadius: BorderRadius.circular(7),),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
                   CupertinoIcons.cart,
                   color: savedController.isAdded(widget.myObject)
-                      ? Colors.black
-                      : Colors.amber,
+                      ? Colors.white
+                      : Colors.black,
                   size: 20,
                 ),
                 Padding(
@@ -51,11 +51,11 @@ class _AddToCartState extends State<AddToCart> {
                   child: Text(
                     savedController.isAdded(widget.myObject)
                         ? "Added"
-                        : "Add to Bag",
+                        : "Add to Cart",
                     style: TextStyle(
                       color: savedController.isAdded(widget.myObject)
-                          ? Colors.black
-                          : Colors.amber,
+                          ? Colors.white
+                          : Colors.black,
                           
                     ),
                      maxLines: 1,

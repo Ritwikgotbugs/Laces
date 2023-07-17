@@ -1,11 +1,13 @@
+import 'package:flutter/cupertino.dart';
+import 'package:laces/screens/checkout.dart';
 import '../constants/constants.dart';
 import '/widgets/banners.dart';
 import '/widgets/gridview.dart';
 import '../widgets/filter.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '/controllers/controller.dart';
+import 'package:badges/badges.dart' as badges;
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -21,8 +23,8 @@ class _HomepageState extends State<Homepage> {
     const Filters(label: "Men", image: "assets/category/man.png"),
     const Filters(label: "Woman", image: "assets/category/woman.png"),
     const Filters(label: "Kids", image: "assets/category/kids.png"),
-    const Filters(label: "Accessories", image: "assets/category/shoe.png"),
-    const Filters(label: "Female", image: "assets/category/woman.png"),
+    const Filters(label: "Sports", image: "assets/category/sports.png"),
+    const Filters(label: "Accessories", image: "assets/category/acs.png"),
   ];
 
   @override
@@ -33,51 +35,69 @@ class _HomepageState extends State<Homepage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: myDrawer,
-      appBar: AppBar(
-        title: const Text("Laces"),
-        centerTitle: true,
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              CupertinoIcons.bell,
-              color: Colors.black,
-              size: 25,
-            ),
-          ),
-          
-        ],
-        
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const MySearchBar(),
-            BannerWidget(),
-            Flexible(
-              child: SizedBox(
-                height: 120,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: filtersList.length,
-                  itemBuilder: (context, index) {
-                    return Filters(
-                      label: filtersList[index].label,
-                      image: filtersList[index].image,
-                    );
-                  },
+    return Obx(
+      () {
+        return Scaffold(
+          drawer: myDrawer,
+          appBar: AppBar(
+            title: const Text("Laces"),
+            centerTitle: true,
+            actions: [
+              Padding(
+                padding: const EdgeInsets.only(right: 20.0),
+                child: badges.Badge(
+                  badgeAnimation: badges.BadgeAnimation.scale(
+                    animationDuration: Duration(seconds: 1),
+                    loopAnimation: false,
+                    curve: Curves.fastOutSlowIn,
+                  ),
+                  badgeStyle: badges.BadgeStyle(badgeColor: Colors.black),
+                  position: badges.BadgePosition.topEnd(top: -10, end: -8),
+                  badgeContent: Text(
+                    '${savedController.cart.length}',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  child: IconButton(
+                    onPressed: () {
+                      Get.to(() => Cart());
+                    },
+                    icon: Icon(CupertinoIcons.cart),
+                  ),
                 ),
               ),
+            ],
+          ),
+          body: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const MySearchBar(),
+                BannerWidget(),
+                Flexible(
+                  child: AspectRatio(
+                    aspectRatio: 3.3,
+                    child: SizedBox(
+                      height: 120,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: filtersList.length,
+                        itemBuilder: (context, index) {
+                          return Filters(
+                            label: filtersList[index].label,
+                            image: filtersList[index].image,
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                ),
+                const MyGrid(),
+              ],
             ),
-            const MyGrid(),
-          ],
-        ),
-      ),
-      bottomNavigationBar: const MyBottomNav(),
+          ),
+        );
+      },
     );
   }
 }
