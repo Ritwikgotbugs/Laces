@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/controller.dart';
 import '../model/model.dart';
-import '../screens/infopage.dart';
 
 class GridCard extends StatefulWidget {
   final String name;
@@ -32,95 +31,144 @@ class _GridCardState extends State<GridCard> {
   final savedController = Get.find<MyObjectsController>();
   @override
   Widget build(BuildContext context) {
+    var num = 1;
     return Padding(
       padding: const EdgeInsets.only(
         top: 10,
       ),
-      child: InkWell(
-        onTap: () {
-          Get.to(() => Info(
-                name: widget.name,
-                description: widget.description,
-                price: widget.price,
-                rating: widget.rating,
-                myObject: widget.myObject,
-                image: widget.image,
-              ));
-        },
-        borderRadius: BorderRadius.circular(0),
-        child: Container(
-          decoration: BoxDecoration(
-              color: Colors.grey[150], borderRadius: BorderRadius.circular(0)),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: SizedBox(
-                        height: 150,
-                        child: AspectRatio(
-                          aspectRatio: 0.8,
-                          child: Image.asset(
-                            widget.image,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 5, top: 10),
-                    child: Column(
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.grey[150],
+          borderRadius: BorderRadius.circular(0),
+        ),
+        child: StreamBuilder<Object>(
+          stream: null,
+          builder: (context, snapshot) {
+            return Stack(
+              children: [
+                Column(
+                  children: [
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          widget.name,
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            fontSize: 16,
-                            color: Color(0xFF191B26),
-                            fontWeight: FontWeight.w700,
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: SizedBox(
+                              height: 150,
+                              child: AspectRatio(
+                                aspectRatio: 0.8,
+                                child: Image.asset(
+                                  widget.image,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 5, top: 10),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                widget.name,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  color: Color(0xFF191B26),
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                              const Text("Color: Red",style: TextStyle(fontSize: 16),),
+                              const Text("Size: 8",style: TextStyle(fontSize: 16),),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                Positioned(
+                  bottom: 0,
+                  right: 10,
+                  top: 130,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFEEEEEE),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Row(
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            --num;
+                            setState(() {
+                              
+                            });
+                          },
+                          icon: const Icon(
+                            CupertinoIcons.minus,
+                            size: 16,
                           ),
                         ),
                         Text(
-                          '\$${widget.price}',
-                          maxLines: 1,
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
+                          "$num",
+                          style: TextStyle(
                             fontSize: 16,
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                        const Text("Color: Red"),
-                        const Text("Size: 8"),
+                        IconButton(
+                          onPressed: () {
+                            ++num;
+                            setState(() {
+                              
+                            });
+                          },
+                          icon: const Icon(
+                            CupertinoIcons.plus,
+                            size: 16,
+                          ),
+                        ),
                       ],
                     ),
                   ),
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: IconButton(
-                  onPressed: () {
-                    savedController.toggleCart(widget.myObject);
-                    setState(() {});
-                  },
-                  icon: const Icon(
-                    CupertinoIcons.delete,
-                    color: Colors.red,
+                ),
+                Positioned(
+                  bottom: 0,
+                  left: 140,
+                  top: 130,
+                  child: Text(
+                    '\$${widget.price}',
+                    maxLines: 1,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      fontSize: 18,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
+                Positioned(
+                  top: 0,
+                  right: 0,
+                  child: IconButton(
+                    onPressed: () {
+                      savedController.toggleCart(widget.myObject);
+                      setState(() {});
+                    },
+                    icon: const Icon(
+                      CupertinoIcons.delete,
+                      color: Colors.red,
+                    ),
+                  ),
+                ),
+              ],
+            );
+          },
         ),
       ),
     );

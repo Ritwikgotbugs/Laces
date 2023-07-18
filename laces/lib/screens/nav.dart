@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:laces/screens/notifications.dart';
 import 'checkout.dart';
 import 'favourites.dart';
 import 'homepage.dart';
@@ -55,7 +56,7 @@ class _MyNavBarState extends State<MyNavBar> {
       case 1:
         return const Saved();
       case 2:
-        return const Cart();
+        return const NotifsPage();
       default:
         return const Homepage();
     }
