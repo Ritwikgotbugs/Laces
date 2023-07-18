@@ -95,7 +95,7 @@ var myDrawer = const Drawer(
     child: Column(
   //mainAxisAlignment: MainAxisAlignment.spaceBetween,
   children: [
-    DrawerHeader(child: Text("Laces")),
+    DrawerHeader(child: Text("SneakerSpot")),
     ListTile(
       leading: Icon(Icons.settings),
       title: Text("S E T T I N G S"),

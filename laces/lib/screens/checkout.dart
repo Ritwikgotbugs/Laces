@@ -18,7 +18,7 @@ class _CartState extends State<Cart> {
 
   // ignore: prefer_typing_uninitialized_variables
   var code;
-  final String coupon = "Laces100";
+  final String coupon = "Sneaker100";
 
   var discount = 0;
   int delivery = 15;
@@ -141,7 +141,7 @@ class _CartState extends State<Cart> {
                       const Padding(
                         padding: EdgeInsets.only(left: 15, top: 5),
                         child: Text(
-                          "Use code \"Laces100\" to get \$100 Off",
+                          "Use code \"Sneaker100\" to get \$100 Off",
                           style: TextStyle(fontSize: 12),
                         ),
                       )

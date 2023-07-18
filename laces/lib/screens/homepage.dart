@@ -40,7 +40,7 @@ class _HomepageState extends State<Homepage> {
         return Scaffold(
           drawer: myDrawer,
           appBar: AppBar(
-            title: const Text("Laces"),
+            title: const Text("SneakerSpot"),
             centerTitle: true,
             actions: [
               Padding(

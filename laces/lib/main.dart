@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Laces',
+      title: 'SneakerSpot',
       theme: ThemeData(
         useMaterial3: true,
         textTheme: GoogleFonts.outfitTextTheme(),
