@@ -36,8 +36,7 @@ class _GridCardState extends State<GridCard> {
     return Padding(
       padding: const EdgeInsets.only(left: 1.5, right: 1.5, bottom: 2),
       child: Obx(
-        ()=> 
-        InkWell(
+        () => InkWell(
           onTap: () {
             Get.to(() => Info(
                   name: widget.name,
@@ -114,7 +113,8 @@ class _GridCardState extends State<GridCard> {
                             widget.description,
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
-                            style: TextStyle(color: Colors.grey[700], fontSize: 11),
+                            style: TextStyle(
+                                color: Colors.grey[700], fontSize: 11),
                           ),
                         ),
                         Padding(
@@ -168,7 +168,7 @@ class _GridCardState extends State<GridCard> {
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 8),
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
                 child: AspectRatio(
                   aspectRatio: 5,
                   child: InkWell(
@@ -180,12 +180,11 @@ class _GridCardState extends State<GridCard> {
                       width: MediaQuery.of(context).size.width / 1.5,
                       height: 40,
                       decoration: BoxDecoration(
-                        color: savedController.isAdded(widget.myObject)
-                            ? Colors.black
-                            : Colors.transparent,
-                        border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.circular(8)
-                      ),
+                          color: savedController.isAdded(widget.myObject)
+                              ? Colors.black
+                              : Colors.transparent,
+                          border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(8)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -230,8 +229,7 @@ class MyGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     final MyObjectsController savedController = Get.put(MyObjectsController());
     return Obx(
-      ()=>
-      GridView.builder(
+      () => GridView.builder(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -263,26 +261,26 @@ class FavGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     final MyObjectsController savedController = Get.put(MyObjectsController());
     return Obx(
-      ()=>
-      GridView.builder(
+      () => GridView.builder(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           mainAxisSpacing: 0,
           crossAxisSpacing: 0,
-          childAspectRatio: 0.53,
+          childAspectRatio: 0.5,
         ),
         itemCount: savedController.saved.length,
         itemBuilder: ((context, index) {
           final myObject = savedController.saved[index];
           return GridCard(
-              name: myObject.name,
-              rating: myObject.rating,
-              price: myObject.price,
-              image: myObject.image,
-              description: myObject.description,
-              myObject: myObject);
+            name: myObject.name,
+            rating: myObject.rating,
+            price: myObject.price,
+            image: myObject.image,
+            description: myObject.description,
+            myObject: myObject,
+          );
         }),
       ),
     );

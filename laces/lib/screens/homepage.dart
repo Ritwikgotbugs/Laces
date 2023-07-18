@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:laces/screens/checkout.dart';
+import 'checkout.dart';
 import '../constants/constants.dart';
 import '/widgets/banners.dart';
 import '/widgets/gridview.dart';

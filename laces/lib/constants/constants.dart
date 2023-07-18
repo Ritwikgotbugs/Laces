@@ -143,50 +143,6 @@ class MyTitle extends StatelessWidget {
   }
 }
 
-class MyCircles extends StatelessWidget {
-  final Color fill;
-  const MyCircles({super.key, required this.fill});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 5),
-      child: ClipOval(
-        child: Container(
-          width: 15,
-          height: 15,
-          decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(
-                  color: const Color.fromARGB(136, 110, 110, 110), width: 1),
-              color: fill),
-        ),
-      ),
-    );
-  }
-}
 
 
-class MyColors extends StatelessWidget {
-  final Color color;
 
-  const MyColors({
-    Key? key,
-    required this.color,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 5, left: 5),
-      child: Container(
-        height: MediaQuery.of(context).size.width / 13,
-        width: MediaQuery.of(context).size.width / 13,
-        decoration: BoxDecoration(
-          color: color,
-          shape: BoxShape.circle,
-        ),
-      ),
-    );
-  }
-}

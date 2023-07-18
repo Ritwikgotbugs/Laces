@@ -2,7 +2,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:laces/constants/addtocart.dart';
 import '../controllers/controller.dart';
 import '../model/model.dart';
 import '../screens/infopage.dart';
@@ -34,7 +33,9 @@ class _GridCardState extends State<GridCard> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 10,),
+      padding: const EdgeInsets.only(
+        top: 10,
+      ),
       child: InkWell(
         onTap: () {
           Get.to(() => Info(
@@ -100,17 +101,9 @@ class _GridCardState extends State<GridCard> {
                         ),
                         const Text("Color: Red"),
                         const Text("Size: 8"),
-                        Padding(
-                          padding: const EdgeInsets.only(top:8.0),
-                          child: AddToCart(
-                            myObject: widget.myObject,
-                            mywidth: MediaQuery.of(context).size.width/4,
-                          ),
-                        )
                       ],
                     ),
                   ),
-                  
                 ],
               ),
               Padding(
@@ -141,20 +134,20 @@ class CartGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     final MyObjectsController savedController = Get.put(MyObjectsController());
     return Obx(
-      ()=>
-      ListView.builder(
+      () => ListView.builder(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
         itemCount: savedController.cart.length,
         itemBuilder: ((context, index) {
           final myObject = savedController.cart[index];
           return GridCard(
-              name: myObject.name,
-              rating: myObject.rating,
-              price: myObject.price,
-              image: myObject.image,
-              description: myObject.description,
-              myObject: myObject);
+            name: myObject.name,
+            rating: myObject.rating,
+            price: myObject.price,
+            image: myObject.image,
+            description: myObject.description,
+            myObject: myObject,
+          );
         }),
       ),
     );

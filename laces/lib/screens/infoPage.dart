@@ -3,10 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
-import 'package:laces/controllers/controller.dart';
-import 'package:laces/screens/checkout.dart';
-import 'package:laces/widgets/customcircle.dart';
-import 'package:laces/widgets/infobanner.dart';
+import '../controllers/controller.dart';
+import '../screens/checkout.dart';
+import '../widgets/customcircle.dart';
+import '../widgets/infobanner.dart';
 import 'package:badges/badges.dart' as badges;
 import '../model/model.dart';
 

@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:laces/screens/checkout.dart';
-import 'package:laces/screens/favourites.dart';
-import 'package:laces/screens/homepage.dart';
+import 'checkout.dart';
+import 'favourites.dart';
+import 'homepage.dart';
 
 
 

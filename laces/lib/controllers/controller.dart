@@ -17,6 +17,9 @@ class MyObjectsController extends GetxController {
   // ignore: invalid_use_of_protected_member
   List<MyObjects> get myObjects => _myObjects.value;
 
+
+
+  //Parse the JSON File
   Future<void> parseJSONData() async {
     try {
       String jsonData = await rootBundle.loadString('assets/data.json');
@@ -37,9 +40,12 @@ class MyObjectsController extends GetxController {
     }
   }
 
+
   RxList<MyObjects> saved = <MyObjects>[].obs;
   RxList<MyObjects> cart = <MyObjects>[].obs;
 
+
+ //Add to Favourties
   void toggleFav(MyObjects card) {
     if (saved.contains(card)) {
       saved.remove(card);
@@ -49,10 +55,12 @@ class MyObjectsController extends GetxController {
     update();
   }
 
+  //Favourite checker
   bool isFavorite(MyObjects card) {
     return saved.contains(card);
   }
 
+ //Add to Cart
   void toggleCart(MyObjects card) {
     if (cart.contains(card)) {
       cart.remove(card);
@@ -73,10 +81,13 @@ class MyObjectsController extends GetxController {
     update();
   }
 
+ //Get Price from Cart List
   List<int> getCartPrices() {
     return cart.map((item) => int.tryParse(item.price) ?? 0).toList();
   }
 
+
+ //Calculate total price
   int calculateTotalPrice() {
     final List<int> cartTotal = getCartPrices();
     return cartTotal.fold(0, (sum, price) => sum + price);

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:laces/screens/nav.dart';
-import 'package:laces/widgets/cart.dart';
+import '../screens/nav.dart';
+import '../widgets/cart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../constants/constants.dart';
