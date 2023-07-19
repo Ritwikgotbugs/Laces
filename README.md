@@ -9,7 +9,7 @@ An E-commerce app made using Flutter and GetX State Management
 ## Features Implemented
 - [x] - Responsiveness
 - [x] - GetX for State Management
-- [ ] - Firebase for user authentication and Cloud Storage
+- [ ] - Firebase for user authentication
 - [ ] - Extensive Database
 
 ## Dependencies Used
@@ -21,4 +21,5 @@ An E-commerce app made using Flutter and GetX State Management
 - [Carousel_Slider](https://pub.dev/packages/carousel_slider)
 - [Badges](https://pub.dev/packages/badges)
 
-- ## Preview of the App
+## Preview of the App
+https://github.com/Ritwikgotbugs/Laces/assets/101137482/88060f49-6485-4665-9cdc-6d673860d613
